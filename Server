@@ -11,7 +11,7 @@ l2="The license prohibits you from editing the script without the"
 l3="permission of the creator, and also prohibits distributing this"
 l4="script without the permission of the creator!"
 l5="The license allows ONLY to use this script for its intended purpose! ! !"
-licenseAuthor="--CREATOR"
+licenseAuthor="--Foxyyzy"
 [ "$is_installed" == "" ] && ./.install.sh
 echo "-------------------------------------"
 echo "|Minecraft-Server-Manager [$version]     |"
