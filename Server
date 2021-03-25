@@ -1,0 +1,40 @@
+#!/bin/bash
+echo > .server/plugins/Move_Your_Plugins_Here
+touch .var
+is_installed=`cat .var`
+version=1.0
+CORE="Paper-[1.12.2]"
+NAME="Minecraft Server Manager"
+l0="LICENSE:"
+l1="By using this script, you automatically agree to the license,"
+l2="The license prohibits you from editing the script without the"
+l3="permission of the creator, and also prohibits distributing this"
+l4="script without the permission of the creator!"
+l5="The license allows ONLY to use this script for its intended purpose! ! !"
+licenseAuthor="--CREATOR"
+[ "$is_installed" == "" ] && ./.install.sh
+echo "-------------------------------------"
+echo "|Minecraft-Server-Manager [$version]     |"
+echo "-------------------------------------"
+echo ""
+echo ""
+[ "$1" == "-r" ] && clear && echo "{Server-Info} > Starting Minecraft server..." && ./.start.sh
+[ "$1" == "--help" ] && clear && echo "--> Commands usage: ./Server -<command> (example: ./Server -your_command_here)"
+[ "$1" == "--help" ] && echo "-----------------------------------------------------------"
+[ "$1" == "--help" ] && echo "|All commands:                                            |"
+[ "$1" == "--help" ] && echo "|-------------                                            |"
+[ "$1" == "--help" ] && echo "|(-r): Launch Minecraft Server, (--help): Help message,   |"
+[ "$1" == "--help" ] && echo "|(-v): Version info, (-s): Open Minecraft server settings,|"
+[ "$1" == "--help" ] && echo "|(-p): install plugin,(-pr): remove  plugin,              |"
+[ "$1" == "--help" ] && echo "|(-i):Change server icon,(-l): View License.              |"
+[ "$1" == "--help" ] && echo "-----------------------------------------------------------"
+[ "$1" == "-v" ] && clear && echo "|INFO:"
+[ "$1" == "-v" ] && echo "|$NAME [$version],"
+[ "$1" == "-v" ] && echo "|Server Core: $CORE,"
+[ "$1" == "-v" ] && echo "|$NAME is a script for help you make your Minecraft Server."
+[ "$1" == "-s" ] && clear && echo "{INFO} > Loading Config..." && cd .server && xdg-open server.properties
+[ "$1" == "-p" ] && clear && echo "{INFO} > Press enter and directory with plugins will be opened, just move your plugins to plugins directory for install" && read name && nautilus .server/plugins
+[ "$1" == "-pr" ] && clear && echo "{INFO} > Just remove plugin from plugins directory for remove plugin, Press ENTER to open plugins folder" && nautilus .server/plugins
+[ "$1" == "-i" ] && echo "Move 64x64 png image to this directory and rename to (server-icon) and press ENTER" && read nothing && mv "server-icon.png" .server
+[ "$1" == "-l" ] && echo "$l0 $l1 $l2 $l3 $l4 $l5" && echo "$licenseAuthor"
+[ "$1" == "" ] && echo "Error. Command not found! Use (./Server --help) to see all commands"
