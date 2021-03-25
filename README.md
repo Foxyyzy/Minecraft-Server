@@ -1,6 +1,6 @@
 # Simply-Minecraft-server-creator
 
-A sh script for help run &amp; create your LOCAL Minecraft server on Linux
+A sh script for help run &amp; create your LOCAL 1.12.2 Minecraft server on Linux
 
 Use ./Server --help to see all commands
 
